@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="css/thymeleaflearning.css" th:href="@{css/thymeleaflearning.css}" />
+<title>ThymeLeaf:Example01</title>
+</head>
+<body>
+	<div th:text="${user.welcomeMsg}">Welcome To ThymeLeaf.</div>
+	<div th:text="${user['welcomeMsg']}">Welcome To ThymeLeaf.</div>
+	<div
+		th:utext="#{user.welcomeMsg(${user.welcomeMsg},${user.welcomeMsg})}">Welcome
+		To ThymeLeaf.</div>
+	<div>Variable Expressions: ${...}/Selection Variable Expressions:
+		*{...}/Message Expressions: #{...}/Link URL Expressions:
+		@{...}/Fragment Expressions: ~{...}</div>
+	<div th:text="${IndexedExpr.List[0].welcomeMsg}">Indexed Variable</div>
+	<div th:text="${#calendars.format(RenderTime,'dd-MMM-yyyy hh:mm:ss')}"></div>
+	<div th:object="${IndexedExpr.List[0]}">
+		<p>
+			Name :<span th:text="${#object.name}">007</span>
+		</p>
+		<p>
+			EmailId:<span th:text="${IndexedExpr.List[0].emailId}">prajit.ju@gmail.com</span>
+		</p>
+		<p>
+			Message:<span th:text="*{welcomeMsg}">Winter Is Coming.</span>
+		</p>
+	</div>
+	<div>
+		<a href="ThymeLeaf" th:href="@{http://www.thymeleaf.org}">GoTo
+			Documentataion.@{~/Server/Root/Relative/Path/To/Diff/App}</a>
+		<div th:if="${IndexedExpr.List[1].isAdmin()}==false">RockBye....Not
+			Displayed</div>
+		<div
+			th:text="|${IndexedExpr.List[0].welcomeMsg},${IndexedExpr.List[0].emailId},${IndexedExpr.List[0].name}|">
+			Only Variable Expression Allowed In Literal Substitution</div>
+		<div th:with="declaredVar=${IndexedExpr.List[0]}">
+			<span>Declaring Variable Using With</span>
+			<div th:text="${declaredVar.welcomeMsg}">Get Declared Variable
+				Using With</div>
+		</div>
+	</div>
+	<div>
+		<form action="DoUseFulForm.html" th:action="@{DoUseful.html}">
+			<input type="text" value="${IndexedExpr.List[0].welcomeMsg}"
+				th:attr="value=${IndexedExpr.List[0].welcomeMsg}"> <input
+				type="text" value="${IndexedExpr.List[0].welcomeMsg}"
+				th:value="${IndexedExpr.List[0].welcomeMsg}">
+		</form>
+	</div>
+	<div th:text="${ElvisOperator}?:'Elvis Operator Used'"></div>
+	<img alt="ThymeLeaf Example Logo" src="images/logo.png"
+		th:attr="src=@{images/logo.png},title=${IndexedExpr.List[0].welcomeMsg},alt=${IndexedExpr.List[0].welcomeMsg}">
+	<table>
+		<tr th:each="user : ${IndexedExpr.List}">
+			<td th:text="${user.welcomeMsg}">...</td>
+			<td th:text="${user.emailId}">...</td>
+		</tr>
+	</table>
+	<table>
+		<tr th:each="user : ${IndexedExpr.List}">
+			<td data-th-text="${user.welcomeMsg}">...</td>
+			<td data-th-text="${user.emailId}">...</td>
+		</tr>
+	</table>
+</body>
+</html>

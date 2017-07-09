@@ -1,0 +1,65 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="css/thymeleaflearning.css" th:href="@{css/thymeleaflearning.css}" />
+<title>ThymeLeaf:Example02</title>
+</head>
+<body>
+	<table>
+		<tr th:each="product,iterationObject : ${products}">
+			<td th:text="${iterationObject.index}">...</td>
+			<td th:text="${iterationObject.count}">...</td>
+			<td th:text="${iterationObject.size}">...</td>
+			<td th:text="${iterationObject.current}">...</td>
+			<td th:text="${iterationObject.even}">...</td>
+			<td th:text="${iterationObject.odd}">...</td>
+			<td th:text="${iterationObject.first}">...</td>
+			<td th:text="${iterationObject.last}">...</td>
+			<td th:text="${product.id}">...</td>
+			<td th:text="${product.name}">...</td>
+			<td th:text="${product.price}">...</td>
+			<td th:text="${product.inStock}">...</td>
+		</tr>
+	</table>
+	<table>
+		<tr th:each="product : ${products}">
+			<td th:text="${productStat.index}">...</td>
+			<td th:text="${productStat.count}">...</td>
+			<td th:text="${productStat.size}">...</td>
+			<td th:text="${productStat.current}">...</td>
+			<td th:text="${productStat.even}">...</td>
+			<td th:text="${productStat.odd}">...</td>
+			<td th:text="${productStat.first}">...</td>
+			<td th:text="${productStat.last}">...</td>
+			<td th:text="${product.id}">...</td>
+			<td th:text="${product.name}">...</td>
+			<td th:text="${product.price}">...</td>
+			<td th:text="${product.inStock}">...</td>
+		</tr>
+	</table>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Price</th>
+			<th>In Stock</th>
+			<th>Comments</th>
+		</tr>
+		<tr>
+		<tr th:each="prod : ${products}" th:class="${prodStat.odd}? 'odd'">
+			<td th:text="${prod.name}">Onions</td>
+			<td th:text="${prod.price}">2.41</td>
+			<td th:text="${prod.inStock}?${true}:${false}">Yes</td>
+			<td>
+				<span>Comments</span>
+				<a href=".." th:if="${prod.comments!=null and (not #lists.isEmpty(prod.comments))}">View</a>
+			</td>	
+		</tr>
+	</table>
+	<div th:switch="'Hola'">
+		<span th:case="'Hola'">Hola</span>
+	</div>
+</body>
+</html>

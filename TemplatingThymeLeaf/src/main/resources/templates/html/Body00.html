@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>ThymeLeaf:Example02</title>
+</head>
+<body>
+	<div style="color:orange;background-color:black;" th:insert="~{Header00::Header}"></div>
+	<div style="color:orange;background-color:black;" th:insert="~{Header00::#HeaderId}"></div>
+	<div style="color:white;background-color:black;">
+		In The Body <span th:text="${RenderTime}"></span>
+		Hola:[[${RenderTime}]].UnEscaped:[[${UnEscape}]].Escaped:[(${UnEscape})]
+	</div>
+	<!-- /*/ Comment Block Other Than Prototype /*/ -->
+	<div style="color:green;background-color:black;" th:replace="~{Footer00::Footer}"></div>
+</body>
+</html>

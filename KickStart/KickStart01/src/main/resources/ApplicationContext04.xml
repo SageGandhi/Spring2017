@@ -22,6 +22,4 @@
 	<bean id="autoWireByType" class="edu.gandhi.prajit.spring.core.ex06.AutoWireExample" autowire="byType" lazy-init="true"></bean>
 	<bean id="autoWireByConstructor" class="edu.gandhi.prajit.spring.core.ex06.AutoWireExample" autowire="constructor" lazy-init="true"></bean>
 	<bean id="autoWireByDefault" class="edu.gandhi.prajit.spring.core.ex06.AutoWireExample" autowire="default" lazy-init="true"></bean>
-	
-	
 </beans>

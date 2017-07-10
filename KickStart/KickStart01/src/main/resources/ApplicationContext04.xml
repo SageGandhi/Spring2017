@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+	<bean id="Uber" class="edu.gandhi.prajit.spring.core.ex06.Uber" p:name="Uber"
+		scope="singleton" autowire="no" name="uber,UberGo,UberX,UberXl,UberVip,UberPool"></bean>
+
+	<bean id="Ola" class="edu.gandhi.prajit.spring.core.ex06.Ola" p:name="Ola"
+		scope="singleton" autowire="no" name="ola,OlaPrimeSedan,OlaMini,OlaAutosRickshaw,OlaShare"></bean>
+		
+	<alias name="Hola" alias="OlaTaxi" />
+	<alias name="Hola" alias="OlaLuxury" />
+	<alias name="Hola" alias="OlaOutStation" />
+	<alias name="Hola" alias="OlaRentals" />
+	
+	<bean id="autoWireNo" class="edu.gandhi.prajit.spring.core.ex06.AutoWireExample" autowire="no" lazy-init="true"></bean>
+	<bean id="autoWireByName" class="edu.gandhi.prajit.spring.core.ex06.AutoWireExample" autowire="byName" lazy-init="true"></bean>
+	<bean id="autoWireByType" class="edu.gandhi.prajit.spring.core.ex06.AutoWireExample" autowire="byType" lazy-init="true"></bean>
+	<bean id="autoWireByConstructor" class="edu.gandhi.prajit.spring.core.ex06.AutoWireExample" autowire="constructor" lazy-init="true"></bean>
+	<bean id="autoWireByDefault" class="edu.gandhi.prajit.spring.core.ex06.AutoWireExample" autowire="default" lazy-init="true"></bean>
+	
+	
+</beans>

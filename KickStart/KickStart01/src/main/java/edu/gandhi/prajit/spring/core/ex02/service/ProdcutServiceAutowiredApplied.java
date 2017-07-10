@@ -1,9 +1,17 @@
-package edu.gandhi.prajit.spring.pattern.diioc;
+package edu.gandhi.prajit.spring.core.ex02.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ProductService {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import edu.gandhi.prajit.spring.pattern.diioc.Product;
+import edu.gandhi.prajit.spring.pattern.diioc.ProductRepositoryInterface;
+
+@Component("prodcutServiceAutowiredApplied")
+public class ProdcutServiceAutowiredApplied {
+
 	private ProductRepositoryInterface productRepository;
 	
 	/**
@@ -22,14 +30,16 @@ public class ProductService {
 
 	/**
 	 * @param productRepository
+	 * Auto Wired Applicable To One Constructor Only
 	 */
-	public ProductService(ProductRepositoryInterface productRepository) {//Constructor Injection
+	@Autowired
+	public ProdcutServiceAutowiredApplied(ProductRepositoryInterface productRepository) {//Constructor Injection
 		this.productRepository = productRepository;//Finder Object Coupled Here
 	}	
 	/**
 	 * 
 	 */
-	public ProductService() {
+	public ProdcutServiceAutowiredApplied() {
 		//Finder Object Coupled Into Setter
 	}
 	/**

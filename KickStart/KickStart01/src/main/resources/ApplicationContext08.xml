@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+	<bean id="sha1MsgDigest" class="edu.gandhi.prajit.spring.core.ex08.FactoryBeanImplementation" p:cryptoAlgo="SHA1"></bean>
+	<bean id="defaultMd5MsgDigest" class="edu.gandhi.prajit.spring.core.ex08.FactoryBeanImplementation"></bean>
+	
+	<bean id="sha1Factory" class="edu.gandhi.prajit.spring.core.ex08.MessageDigestFactory" p:cryptoAlgo="SHA1"></bean>
+	<bean id="md5Factory" class="edu.gandhi.prajit.spring.core.ex08.MessageDigestFactory"></bean>
+	
+	<bean id="md5" factory-bean="md5Factory" factory-method="createInstance"></bean>
+	<bean id="sha1" factory-bean="sha1Factory" factory-method="createInstance"></bean>
+</beans>

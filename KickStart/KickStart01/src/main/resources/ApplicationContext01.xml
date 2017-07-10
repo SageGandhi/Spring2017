@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	<bean id="constructorByType00" class="edu.gandhi.prajit.spring.core.ex02.service.ConstructorByType">
+		<constructor-arg index="0" value="9999" type="java.lang.String"></constructor-arg>
+	</bean>
+	<bean id="constructorByType01" class="edu.gandhi.prajit.spring.core.ex02.service.ConstructorByType">
+		<constructor-arg index="0" value="9999" type="int"></constructor-arg>
+	</bean>
+	<bean id="constructorByType02" class="edu.gandhi.prajit.spring.core.ex02.service.ConstructorByType">
+		<constructor-arg index="0" value="9999"></constructor-arg>
+	</bean>
+</beans>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	<context:component-scan base-package="edu.gandhi.prajit.spring.core.ex03"></context:component-scan>
+
+	<bean id="source"
+		class="edu.gandhi.prajit.spring.core.ex03.pojo.BeanPropertyCopy00"
+		p:booleanProperty00="true" p:floatProperty00="100.00" p:intProperty00="100"
+		p:longProperty00="10000" p:stringProperty00="Prajit"></bean>
+	<bean id="target"
+		class="edu.gandhi.prajit.spring.core.ex03.pojo.BeanPropertyCopy01"
+		p:booleanProperty01="#{source.booleanProperty00}" p:floatProperty01="#{source.floatProperty00}"
+		p:intProperty01="#{source.intProperty00}" p:longProperty01="#{source.longProperty00}"
+		p:stringProperty01="#{source.stringProperty00}"></bean>
+	<bean id="valueXml"
+		class="edu.gandhi.prajit.spring.core.ex03.pojo.BeanPropertyCopy01"></bean>
+</beans>

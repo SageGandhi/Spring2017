@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+	<bean id="collect" class="edu.gandhi.prajit.spring.core.ex04.pojo.CollectionPojo">
+		<property name="map">
+			<map key-type="java.lang.String" value-type="java.lang.String">
+				<entry key="Name01" value="list01"></entry>
+				<entry key="Name02" value="list02"></entry>
+			</map>
+		</property>
+		<property name="list">
+			<ref bean="list"/>
+		</property>
+		<property name="set">
+			<value>Spring</value>
+		</property>
+		<property name="props">
+			<props>
+				<prop key="Name">Prajit Gandhi</prop>
+			</props>
+		</property>
+	</bean>
+	<util:list id="list" list-class="java.util.ArrayList" value-type="java.lang.String">
+		<value>FirstName</value>
+		<value>LastName</value>
+	</util:list>
+</beans>

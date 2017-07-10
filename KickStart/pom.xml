@@ -12,6 +12,7 @@
 	</properties>
 	<modules>
 		<module>KickStart01</module>
-		
+
+		<module>SpringBatch</module>
 	</modules>
 </project>

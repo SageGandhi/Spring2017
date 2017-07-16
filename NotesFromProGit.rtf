@@ -1,0 +1,67 @@
+==============================================================Chapter:01:Begining==============================================================
+git config --global user.name "Prajit Gandhi"
+git config --global user.email "Prajit.Ju@gmail.com"
+git config --global core.editor "C:\Soft\NotePad\notepad++.exe"
+To Check Settings:git config --list
+Check Particular Property:git config user.name
+For Help:git help config/git config --help
+==============================================================Chapter:02:Git Basics============================================================
+Initialized A Git Directory In NonExisting Empty Directory:git init
+Add Files To Local Repo:git add *.png
+Commit Files:git commit[Will Open Default Editor We Set Earlier,Add A Commit Message[Initial Commit For Demo Git Project]]
+To Clone Use:git clone https://github.com/spring-projects/spring-framework.git .\Spring500ReleaseCandidate02\[Example Url]
+TrackedUnTracked.png To Show Tracked & UnTracked File In Git Use:git status
+git add Is Polymorphic.
+git status --short|git status --s Output Simplified Version
+FirstColumn[Status For Staging Area,A:Added,M:Modified]|SecondColumn[Status For Working Directory,A:Added,M:Modified]
+Untracked Files Will Have ?? In Those 2 Columns.
+Use Kinesics Text Editor For Cmd Text Editing.For .gitignore See https://github.com/github/gitignore
+To Retrieve Differences Between Working Area & Stage Area We Will Use git diff
+To Retrieve Differences Between Stage Area & Last Commit We Will Use git diff --staged/git diff --cached
+SetUp Default Diff Tool & DiffTool Gui:
+To Unset Any Values In Configuration:Ex. git config --unset diff.guitool |git config --unset diff.tool
+To Check The DiffTool Help:git difftool --tool-help
+Set Default Diff Tool Using  git difftool --tool=diffuse,Also Do Following:
+For Details Goto https://www.git-scm.com/docs/git-difftool/1.7.10:
+git config diff.tool diffuse
+git config diff.guitool diffuse
+git config difftool.diffuse.path "C:\Soft\Diffuse\diffuse.exe"
+git commit Will Commit Only Staged File.UnStaged Files Needs To Be Staged First.
+git commit With -v[Verbose] & -m[Message],-a[Add Directly To Skip Staging,But Add All Changed Files] Option/Flag.
+git rm --cached <FileName> Remove Files From Staging/Index Area -f Flag Will Force Removal.
+git mv <FileNameFrom> <FileNameTo> Will Rename File In Git.
+git log --patch -2 --stat[Check Git History With What Patched[-p/--patch] For 2 Last Commit,With Statistics]
+git log --pretty=oneline|short|full|fuller[For Pretty Print]
+[%H Commit Hash|%h Abbreviated Commit Hash|%T Tree Hash|%t Abbreviated Tree Hash|%P Parent Hashes|%p Abbreviated Parent Hashes]
+git log --pretty=format:"%H %h %T %t %P %p" --graph
+[%an Author Name|%ae Author Email|%ad Author Date(Format Respects The --date=option)|%ar Author Date, Relative[<> Hour Ago]]
+git log --pretty=format:"%an %ae %ad %ar" --graph
+[%cn Committer Name|%ce Committer Email|%cd Committer Date(Format Respects The --date=option)|%cr Committer Date, Relative[<> Hour Ago],Subject]
+git log --pretty=format:"%cn %ce %cd %cr %s" --graph
+Undoing Commited File By Replacing Previous Commit:
+    git commit -m '<Message>'
+    git add <ForgottenFile>
+    git commit --amend -m '<ChangedMessage>'
+git reset HEAD <FileName> -Only Use Staging/Index Area.So Only To UnStage The Staged File Use Default Option.
+git checkout[Copies Data From Repository To Working Directory] -- <FileName OverWritten From Repository>
+git remote -v[Verbose Will Display All Fetch/Push Url For Specific Repository]
+Add Remote Repository:
+git remote add <ShortName> <Url> Ex.git remote add Spring420Release https://github.com/SageGandhi/spring-framework.git
+git remote fetch Spring420Release[Only Fetched From Server All The Changes Took Place After Clone.No Merging,To Merge Use pull]
+Use Atlasian Connector For Eclipse:
+Pushing To A Remote Branch:git push <Remote Short Name> <Remote Branch Name>
+Show Details:git remote show <Remote Short Name|origin>
+Rename:git remote rename <Old Remote Short Name> <New Remote Short Name>
+Removal:git remote rm <Remote Short Name>
+Creating Annotated Tag:git tag -a v1.0 -m "Annotated Tag"|git tag "Release.1.0"
+Get Tag Name:git tag
+git log --pretty=oneline|git tag -a "BaseVersionAnnotated" -m "Using Hash" 199f98548a3dcabe64762baf6f3988df06eec1b8
+git log --pretty=oneline|git tag "BaseVersion" 199f98548a3dcabe64762baf6f3988df06eec1b8
+To Push The Tag In Remote Server:git push <RemoteServer> <TagName>
+Ex.git push origin BaseVersion|git push origin BaseVersionAnnotated
+To Push All Tag Not Already In Server:git push origin --tag
+Aliasing Command:
+Creating Alias Pretty Graph:
+git config --global alias.pg 'log --pretty=format:"%h %t %p %an %ae %s" --graph'
+To Execute External Command Using Alias Use !:git config --global alias.visual '!gitk'
+==============================================================Chapter:03:Branching==============================================================

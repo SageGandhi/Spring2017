@@ -68,7 +68,28 @@ To Execute External Command Using Alias Use !:git config --global alias.visual '
 Git Porcelain[High Level] Vs Plumbing[Low Level] Command.
 Persistent Map[Key,Value]->Stupid Content Tracker->Revision Control System->Distributed Revision Control System.
 Persistent Map[Key,Value]:Value Will Be Any Byte[File Content],Key:Sha1 Hash.Sha1 Hash Can Be Generated As Follows:
-echo "Git Will Generate Sha1 Hash For It"|git hash-object --stdin
+echo "Git Will Generate Sha1 Hash For It"|git hash-object --stdin->de284c8304581a75c228b0c7b407e9faad033b22
+echo "Git Will Generate Sha1 Hash For It"|git hash-object --stdin -w->Write In .git Directory Under objects Directory Will Find "de" Directory Due To Hash
+git hash-object NotesFromProGit.rtf->c0339dc8ffc715a219bfb28d4d6f94691eb2606a
+For Type Of The Object From Hash:git cat-file de284c8304581a75c228b0c7b407e9faad033b22 -t
+For Pretty Printing Of The Object From Hash:git cat-file de284c8304581a75c228b0c7b407e9faad033b22 -p
+Commit Sample Project With 1 File+ 1 File Inside Directory.Commit Into Bare Repository.Use git log To Get The Hash.
+Example:
+git cat-file -p 79686f4f7a63c60f0c04f51c45b60c25c4d4007c->Pretty Print For Hash,Has Parent Hash For tree be5bf33fad3b4765a522404d51fa04976cb98d3b
+git cat-file -t 79686f4f7a63c60f0c04f51c45b60c25c4d4007c->Type For Hash #Type Is commit
+git cat-file -t be5bf33fad3b4765a522404d51fa04976cb98d3b->Type For Hash #Type Is tree
+git cat-file -p be5bf33fad3b4765a522404d51fa04976cb98d3b->Contains Hash For A tree & A blob
+040000 tree 8c64d21c90e02c6eb62087fa0c4fc43f6255d280    Details->040000 File Permission
+100644 blob b8dc3312ce50cc220c0c3a7705703b3b84408609    LikedItem.txt->100644 File Permission
+git cat-file -p 8c64d21c90e02c6eb62087fa0c4fc43f6255d280->Contains Another blob
+100644 blob cdb03a0494acf5a2c7cd3894c9bf38355ad0b71a    HydrabadiPaneer.txt
+git cat-file -p cdb03a0494acf5a2c7cd3894c9bf38355ad0b71a|echo->Contains Content Of HydrabadiPaneer.txt blob
+git cat-file -p b8dc3312ce50cc220c0c3a7705703b3b84408609|echo->Contains Content Of LikedItem.txt blob
+blob Stores Content Of A File,tree Stores Content Of A Directory
+Then Change LikedItem.txt & Commit:
+Second Commit Have git cat-file -t 7e3b72ee14a03068d86696e26d011ff84ea9b9ce, 
+    1 tree ba477bbc1eb8fec6122b52c59153ecdd410e14fe & 1 parent 79686f4f7a63c60f0c04f51c45b60c25c4d4007c->First Commit
+ git count-objects Will Return How Many Objects In Git Node[Root,Parent,Tree The Whole Graph]    
 ==============================================================Added In Office===================================================================
 Info/Pack Directory Used For Keeping Large File Delta Changes,May Be By Tracking Only Delta Change Or Compressing Some Part Of It.
 Git Object Model Consist Of Blob,Tree,Commit,Annotated Tag.

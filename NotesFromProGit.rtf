@@ -94,9 +94,8 @@ Second Commit Have git cat-file -t 7e3b72ee14a03068d86696e26d011ff84ea9b9ce,
 Info/Pack Directory Used For Keeping Large File Delta Changes,May Be By Tracking Only Delta Change Or Compressing Some Part Of It.
 Git Object Model Consist Of Blob,Tree,Commit,Annotated Tag.
 ==============================================================Chapter:03:Branching==============================================================
-master Branch Is Created By git init Command By Default
-Current Branch Is Pointed By HEAD Pointer.git branch <BranchName> Will Create A Branch,But Not Switched To Created Branch By Default.
-git log --oneline --decorate Will Show Which Branch Head Is Pointing To.
+master Branch Is Created By git init Command By Default.Current Branch Is Pointed By HEAD Pointer.git branch <BranchName> Will Create A Branch,
+But Not Switched To Created Branch By Default.git log --oneline --decorate Will Show Which Branch Head Is Pointing To.
 Switch To Different Branch Using git checkout <BranchName>
 How Does This Command Move Information Across The Four Areas|How Does This Command Change The Repository
 Changes Files In Working Directory|Repository Does Not Change
@@ -105,4 +104,4 @@ To Create A Branch & Switch At The Same Time git checkout -b <BranchName> ->Same
 git log --oneline --decorate --graph --all Is Useful Command For Viewing Divergence.As Branch Are Only ~40 Character Data,
 Branch Creation Is Pretty Fast[Points To CheckSum Of A Commit,40Charater+1 New Line Character].Also A Commit Points To Parent 
 Commit, So Merge Base Exists To Merge Easily.Before Switch We Need To Either Commit Or Stash Changes We Have Committed In Current Branch.By 
-Switching Git Reset Working Directory.
+Switching Git Reset Working Directory.Use git log --all --graph --decorate --oneline For Viewing Different Branch In Graphical Way[So Called].

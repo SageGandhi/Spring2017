@@ -23,9 +23,9 @@ To Unset Any Values In Configuration:Ex. git config --unset diff.guitool |git co
 To Check The DiffTool Help:git difftool --tool-help
 Set Default Diff Tool Using  git difftool --tool=diffuse,Also Do Following:
 For Details Goto https://www.git-scm.com/docs/git-difftool/1.7.10:
-git config diff.tool diffuse
-git config diff.guitool diffuse
-git config difftool.diffuse.path "C:\Soft\Diffuse\diffuse.exe"
+git config --global diff.tool diffuse
+git config --global diff.guitool diffuse
+git config --global difftool.diffuse.path "C:\Soft\Diffuse\diffuse.exe"
 git commit Will Commit Only Staged File.UnStaged Files Needs To Be Staged First.
 git commit With -v[Verbose] & -m[Message],-a[Add Directly To Skip Staging,But Add All Changed Files] Option/Flag.
 git rm --cached <FileName> Remove Files From Staging/Index Area -f Flag Will Force Removal.
@@ -107,3 +107,4 @@ Commit, So Merge Base Exists To Merge Easily.Before Switch We Need To Either Com
 Switching Git Reset Working Directory.Use git log --all --graph --decorate --oneline For Viewing Different Branch In Graphical Way[So Called].
 If Both Branch Is Not Divergent Then It Is Called Fast-Forward[Git Optimization].To Delete A Branch Use git branch -d <BranchName>.
 Also In 3-Way Merge Commit Will Create A Separate Commit,Have More Than 1 Parent.
+Git MergeTool Configuration:

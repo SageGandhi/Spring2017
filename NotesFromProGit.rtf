@@ -1,7 +1,7 @@
 ==============================================================Chapter:01:Begining==============================================================
 git config --global user.name "Prajit Gandhi"
 git config --global user.email "Prajit.Ju@gmail.com"
-git config --global core.editor "C:\Soft\NotePad\notepad++.exe"
+git config --global core.editor "C:/Soft/NotePad/notepad++.exe"
 To Check Settings:git config --list
 Check Particular Property:git config user.name
 For Help:git help config/git config --help
@@ -25,7 +25,7 @@ Set Default Diff Tool Using  git difftool --tool=diffuse,Also Do Following:
 For Details Goto https://www.git-scm.com/docs/git-difftool/1.7.10:
 git config --global diff.tool diffuse
 git config --global diff.guitool diffuse
-git config --global difftool.diffuse.path "C:\Soft\Diffuse\diffuse.exe"
+git config --global difftool.diffuse.path "C:/Soft/Diffuse/diffuse.exe"
 git commit Will Commit Only Staged File.UnStaged Files Needs To Be Staged First.
 git commit With -v[Verbose] & -m[Message],-a[Add Directly To Skip Staging,But Add All Changed Files] Option/Flag.
 git rm --cached <FileName> Remove Files From Staging/Index Area -f Flag Will Force Removal.
@@ -70,7 +70,7 @@ Persistent Map[Key,Value]->Stupid Content Tracker->Revision Control System->Dist
 Persistent Map[Key,Value]:Value Will Be Any Byte[File Content],Key:Sha1 Hash.Sha1 Hash Can Be Generated As Follows:
 echo "Git Will Generate Sha1 Hash For It"|git hash-object --stdin->de284c8304581a75c228b0c7b407e9faad033b22
 echo "Git Will Generate Sha1 Hash For It"|git hash-object --stdin -w->Write In .git Directory Under objects Directory Will Find "de" Directory Due To Hash
-git hash-object NotesFromProGit.rtf->c0339dc8ffc715a219bfb28d4d6f94691eb2606a
+git hash-object NotesFromProGit.rtf'->c0339dc8ffc715a219bfb28d4d6f94691eb2606a
 For Type Of The Object From Hash:git cat-file de284c8304581a75c228b0c7b407e9faad033b22 -t
 For Pretty Printing Of The Object From Hash:git cat-file de284c8304581a75c228b0c7b407e9faad033b22 -p
 Commit Sample Project With 1 File+ 1 File Inside Directory.Commit Into Bare Repository.Use git log To Get The Hash.
@@ -107,4 +107,9 @@ Commit, So Merge Base Exists To Merge Easily.Before Switch We Need To Either Com
 Switching Git Reset Working Directory.Use git log --all --graph --decorate --oneline For Viewing Different Branch In Graphical Way[So Called].
 If Both Branch Is Not Divergent Then It Is Called Fast-Forward[Git Optimization].To Delete A Branch Use git branch -d <BranchName>.
 Also In 3-Way Merge Commit Will Create A Separate Commit,Have More Than 1 Parent.
-Git MergeTool Configuration:
+Git MergeTool Configuration:Get Help Using git mergetool --tool-help
+Beyond Compare Config As Merge Tool:
+git config --global merge.tool bc3
+git config --global mergetool.bc3.trustExitCode true
+Config Beyond Compare Path:git config --global mergetool.bc3.path C:/Soft/BeyondCompare4/BCompare.exe
+Edit Global File:git config --global --edit

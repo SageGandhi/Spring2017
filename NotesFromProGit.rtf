@@ -105,7 +105,9 @@ git log --oneline --decorate --graph --all Is Useful Command For Viewing Diverge
 Branch Creation Is Pretty Fast[Points To CheckSum Of A Commit,40Charater+1 New Line Character].Also A Commit Points To Parent 
 Commit, So Merge Base Exists To Merge Easily.Before Switch We Need To Either Commit Or Stash Changes We Have Committed In Current Branch.By 
 Switching Git Reset Working Directory.Use git log --all --graph --decorate --oneline For Viewing Different Branch In Graphical Way[So Called].
-If Both Branch Is Not Divergent Then It Is Called Fast-Forward[Git Optimization].To Delete A Branch Use git branch -d <BranchName>.
+If Both Branch Is Not Divergent Then It Is Called Fast-Forward[Git Optimization].
+To Delete A Branch Use git branch -d <BranchName>.
+Git Will Either Checkout Branch Easily Or Will Not Let You Do It. 
 Also In 3-Way Merge Commit Will Create A Separate Commit,Have More Than 1 Parent.
 Git MergeTool Configuration:Get Help Using git mergetool --tool-help
 Beyond Compare Config As Merge Tool:
@@ -113,3 +115,43 @@ git config --global merge.tool bc3
 git config --global mergetool.bc3.trustExitCode true
 Config Beyond Compare Path:git config --global mergetool.bc3.path C:/Soft/BeyondCompare4/BCompare.exe
 Edit Global File:git config --global --edit
+git branch -v --merged Will Show Which Branches Are Already Merged With Current Branch{Head}.
+git branch -v --no-merged Will Show Which Branches Are Not Merged With Current Branch{Head}.No-Merged Branch Ca Not Be Deleted Unless Forced.
+To Forcefully Delete A Branch By git branch -D <BranchName>
+Git Uses Three-Way Merge[Common-Base,Your Current Merge-Into Branch,Mergein Branch].Two-Way Merge[Your Current Merge-Into Branch,Mergein Branch]Branch Like Work Silo Perspective.
+origin Is Default Name For Remote Server,Change This Using git clone <Url> -o <OriginName>.
+git ls-remote origin|git remote show origin Will Return Full List OfRemote Reference.
+git fetch origin->Fetch Data From Remote Origin,Move Remote Ref origin/master,Update Local Object Db.
+git push <Remote> <Branch>->To Push A Branch In Remote Which Is Same As git push <Remote> <LocalBranch>:<RemoteBranch>.<LocalBranch> & <RemoteBranch> Have The Same Name Or Different One.
+While Pushing Git Will Ask For Credential,Use git config --global credential.helper cache To Keep Credential In Cache.
+Use git merge <Remote>/<BranchName> To Merge It With Current Branch Or 
+To Checkout git checkout -b <YourLocalBranchName> <Remote>/<BranchName> Is Same As git checkout --track <Remote>/<BranchName> With Local Branch Created Will Be Of Same Name As Of Remote.Remote Branch Is Called UpStream Branch,Local Branch Is Called Tracking Branch.
+Git Will Know When We Do git pull From Which Remote Branch To Pull From & Where Git Should Merge Into.
+To Change UpStream For Tracking Branch Either Use git branch -u  /--set-upstream <Remote>/<BranchName>.
+git branch -vv Display All Branches & Differences In Commit[Ahead/Behind:3Ahead/1Behind->3 Commit Done In Local But Not Pushed In Remote/1 Commit Done In Remote But Not Pulled Into Local].
+git pull~git fetch[No Changes In Working Repository] Then git merge[Changes Made Into Working Directory].
+To Delete A Branch In Remote:git push <Remote> --delete <BranchName>
+For Integrating Changes :Either You Do git merge Or git rebase.
+What A git merge Do->Take Latest Snapshots[Commit] Of The Branches MergeIn & MergeInto+Most Recent Common Ancestor In Between These 2.Then Create A New Commit.
+What A git rebase Do->So There Are 3 Snapshot[Branches Current Working Branch & RebaseOnto+Most Recent Common Ancestor] To Consider.Take All The Changes Happened In That Branch.By This Way Take All The Change That Were Committed In One Branch & Replay Them On Another Branch.It Works By Going To The Common Ancestor Of The Two Branches(The One On Working Directory & The One We’re Rebasing Onto), Getting The Diff Introduced By Each
+Commit Of The Branch On Working Directory, Saving Those Diffs To Temporary Files, Resetting The Current Branch To The Same Commit As The Branch You Are Rebasing Onto,& Finally Applying Each Change In Turn.In Rebasing History Changed,Linear History.
+=============================================================Distributed Git:Centralised Workflow================================================
+Just Like Other Version Control System Model[Svn,Cvs]
+=============================================================Distributed Git:Integration-Manager Workflow========================================
+One Called Blessed Repositoty.Useful When Using GitHub,GitLab With Forking Support.Steps As Followed:
+1.The Project Maintainer Pushes To Their Public Repository.
+2.A Contributor Clones That Repository & Makes Changes.
+3.The Contributor Pushes To Their Own Public Copy.
+4.The Contributor Sends The Maintainer An Email Asking Them To Pull Changes.
+5.The Maintainer Adds The Contributor’s Repo As A Remote & Merges Locally.
+6.The Maintainer Pushes Merged Changes To The Main Repository.
+=============================================================Dictator & Lieutenants Workflow=====================================================
+1.Regular Developers Work On Their Topic Branch & Rebase Their Work On Top Of master[The master Branch Is That Of The Dictator.]
+2.Lieutenants merge the developers’ topic branches into their master branch.
+3.The dictator merges the lieutenants’ master branches into the dictator’s master branch.
+4.The dictator pushes their master to the reference repository so the other developers can rebase on it.
+=================================================================================================================================================
+git merge --squash[Real Merge Happened But Without Commit]/--no-commit[Delay The Merge Commit]
+git config --global rerere.enabled true[Enabling Reusing Recorded Resolution]
+git log --abbrev-commit --oneline[Short Un-Ambiguous Sha1]
+git reflog[Where Is Head Pointing Over Certain Time,For Detailing Use git log -g]

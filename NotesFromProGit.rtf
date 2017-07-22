@@ -159,3 +159,5 @@ git show Sha1Commit^Num[Num Parent,Num=2 Means 2nd Parent,Useful For Merge Commi
 git show Sha1Commit~Num[Num Parent,Num=2 Means 1st Parent Of 1st Parent]
 git log NotReachableFrom..RechableFrom[git log master..spring: Means Available In Commit spring But Not Reachable From master]
 git log NotReachableFrom..RechableFrom Same As git log ~NotReachableFrom RechableFrom Same As git log RechableFrom --not NotReachableFrom
+git stash[Put Current Working Directory In Stash Stack,Same As git stash save]
+git stash apply[Most Recent Stashed Working Directory] & git stash pop[To Pop Most Recent Stashed Working Directory]
